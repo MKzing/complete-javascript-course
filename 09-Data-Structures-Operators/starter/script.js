@@ -528,7 +528,28 @@ GOOD LUCK 😀
   console.log(gk, fieldPlayers);
 
 // # 3
+  const allPlayers = [...players1, ...players2];
+  console.log(allPlayers);
 
+// # 4
+  const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+  console.log(players1Final);
+
+// # 5
+  const { 
+    odds: {team1, x: draw, team2}
+  } = game;
+  console.log(team1, draw, team2);
+
+// #6
+  function printGoals(...players) {
+    console.log(players, `${players.length}`);
+  }
+
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals(...game.scored);
+
+// # 7
 
 
 // ///////////////////////////////////////
