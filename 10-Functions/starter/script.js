@@ -53,6 +53,7 @@
 
 // checkIn(flight, jonas);
 
+
 // ** Callback Functions
 
 // const oneWord = function (str) {
@@ -82,6 +83,7 @@
 // document.body.addEventListener('click', high5);
 // ['John', 'Mary', 'Joesephina'].forEach(high5);
 
+
 // ** Functions to Functions
 
 // const greet = function (greeting) {
@@ -99,6 +101,59 @@
 // const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
 // greetArr('Hi')('Tommyboy');
+
+
+// ** Call & Apply
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  isataCode: 'LH',
+  bookings: [],
+
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name});
+  },
+};
+
+lufthansa.book(239, 'Jonas Shmeedyboy');
+lufthansa.book(635, 'Johnny Smitty');
+console.log(lufthansa);
+
+const eurowings = {
+  name: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+book.call(eurowings, 23, 'Saraaaah Willy');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Maria Coppop');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Maria Coppop');
+
+const flightData = [583, 'George Coppop'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData);
+
+
+// ** Bind Method
+
+
 
 // Coding Challenge #1
 
