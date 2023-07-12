@@ -465,29 +465,25 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
+// const calcAverageHumanAge = function (ages) {
+//   const humanAges =ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+//   const adults = humanAges.filter(age => age >= 18);
+//   console.log(humanAges);
+//   console.log(adults);
+
+//   const average = adults.reduce(
+//     (acc, age, i, arr) => acc + age / arr.length, 0
+//   );
+
+//   return average;
+// };
+
+// const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+// console.log(avg1, avg2);
+
+
 /*
-const calcAverageHumanAge = function (ages) {
-  const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
-  const adults = humanAges.filter(age => age >= 18);
-  console.log(humanAges);
-  console.log(adults);
-
-  // const average = adults.reduce((acc, age) => acc + age, 0) / adults.length;
-
-  const average = adults.reduce(
-    (acc, age, i, arr) => acc + age / arr.length,
-    0
-  );
-
-  // 2 3. (2+3)/2 = 2.5 === 2/2+3/2 = 2.5
-
-  return average;
-};
-const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-console.log(avg1, avg2);
-
-
 ///////////////////////////////////////
 // The Magic of Chaining Methods
 const eurToUsd = 1.1;
@@ -517,19 +513,16 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
+// const calcAverageHumanAge2 = ages => ages
+//   .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+//   .filter(age => age >= 18)
+//   .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+// const avg1 = calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]);
+// const avg2 = calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]);
+// console.log(avg1, avg2);
+
 /*
-const calcAverageHumanAge = ages =>
-  ages
-    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
-    .filter(age => age >= 18)
-    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-// adults.length
-
-const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-console.log(avg1, avg2);
-
-
 ///////////////////////////////////////
 // The find Method
 const firstWithdrawal = movements.find(mov => mov < 0);
@@ -656,56 +649,37 @@ labelBalance.addEventListener('click', function () {
 ///////////////////////////////////////
 // Array Methods Practice
 
-// 1.
-const bankDepositSum = accounts
-  .flatMap(acc => acc.movements)
-  .filter(mov => mov > 0)
-  .reduce((sum, cur) => sum + cur, 0);
-
+// # 1
+const bankDepositSum = accounts.flatMap(acc => acc.movements).filter(mov => mov > 0).reduce((sum, cur) => sum + cur, 0);
 console.log(bankDepositSum);
 
-// 2.
-// const numDeposits1000 = accounts
-//   .flatMap(acc => acc.movements)
-//   .filter(mov => mov >= 1000).length;
+// # 2
+// Nada
 
-const numDeposits1000 = accounts
-  .flatMap(acc => acc.movements)
-  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
-
+const numDeposits1000 = accounts.flatMap(acc => acc.movements).reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
 console.log(numDeposits1000);
 
-// Prefixed ++ oeprator
+// Prefixed ++ operator
 let a = 10;
 console.log(++a);
 console.log(a);
 
-// 3.
-const { deposits, withdrawals } = accounts
-  .flatMap(acc => acc.movements)
-  .reduce(
-    (sums, cur) => {
-      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
-      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
-      return sums;
-    },
-    { deposits: 0, withdrawals: 0 }
-  );
+// # 3
+const {deposits, withdrawals} = accounts.flatMap(acc => acc.movements).reduce((sums, cur) => {
+  sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+  return sums;
+},
+{deposits: 0, withdrawals: 0}
+);
 
 console.log(deposits, withdrawals);
 
-// 4.
-// this is a nice title -> This Is a Nice Title
+// # 4
 const convertTitleCase = function (title) {
-  const capitzalize = str => str[0].toUpperCase() + str.slice(1);
-
+  const capitzalize = str => str[0].toUpperCase() + str.slice[1];
   const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
 
-  const titleCase = title
-    .toLowerCase()
-    .split(' ')
-    .map(word => (exceptions.includes(word) ? word : capitzalize(word)))
-    .join(' ');
+  const titleCase = title.toLowerCase().split(' ').map(word => (exceptions.includes(word) ? word : capitzalize(word))).join(' ');
 
   return capitzalize(titleCase);
 };
@@ -745,59 +719,42 @@ const dogs = [
 GOOD LUCK 😀
 */
 
-/*
 const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob']},
   { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John']},
+  { weight: 32, curFood: 340, owners: ['Michael']},
 ];
 
-// 1.
-dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+// # 1
+dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28 )));
 
-// 2.
+// # 2
 const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
 console.log(dogSarah);
-console.log(
-  `Sarah's dog is eating too ${
-    dogSarah.curFood > dogSarah.recFood ? 'much' : 'little'
-  } `
-);
+console.log(`Sarah's dog is eating too ${dogSarah.curFood > dogSarah.recFood ? 'much' : 'little'}`);
 
-// 3.
-const ownersEatTooMuch = dogs
-  .filter(dog => dog.curFood > dog.recFood)
-  .flatMap(dog => dog.owners);
-// .flat();
+// # 3
+const ownersEatTooMuch = dogs.filter(dog => dog.curFood > dog.recFood).flatMap(dog => dog.owners);
 console.log(ownersEatTooMuch);
 
-const ownersEatTooLittle = dogs
-  .filter(dog => dog.curFood < dog.recFood)
-  .flatMap(dog => dog.owners);
+const ownersEatTooLittle = dogs.filter(dog => dog.curFood < dog.recFood).flatMap(dog => dog.owners);
 console.log(ownersEatTooLittle);
 
-// 4.
-// "Matilda and Alice and Bob's dogs eat too much!"
-//  "Sarah and John and Michael's dogs eat too little!"
+// # 4
 console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`);
 console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
 
-// 5.
+// # 5
 console.log(dogs.some(dog => dog.curFood === dog.recFood));
 
-// 6.
-// current > (recommended * 0.90) && current < (recommended * 1.10)
-const checkEatingOkay = dog =>
-  dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
-
+// # 6
+const checkEatingOkay = dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
 console.log(dogs.some(checkEatingOkay));
 
-// 7.
+// # 7
 console.log(dogs.filter(checkEatingOkay));
 
-// 8.
-// sort it by recommended food portion in an ascending order [1,2,3]
+// # 8
 const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
 console.log(dogsSorted);
-*/
