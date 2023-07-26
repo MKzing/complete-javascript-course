@@ -214,6 +214,7 @@ class App {
       .openPopup();
   }
 
+  
   _renderWorkout(workout) {
     let html = `
       <li class="workout workout--${workout.type}" data-id="${workout.id}">
