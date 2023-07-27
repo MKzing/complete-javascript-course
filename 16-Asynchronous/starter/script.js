@@ -238,7 +238,6 @@ TEST COORDINATES 2: -33.933, 18.474
 GOOD LUCK 😀
 */
 
-
 // const whereAmI = function (lat, lng) {
 //   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
 //     .then(res => {
@@ -259,6 +258,7 @@ GOOD LUCK 😀
 //     .then(data => renderCountry(data[0]))
 //     .catch(err => console.error(`${err.message} 💥`));
 // };
+
 // whereAmI(52.508, 13.381);
 // whereAmI(19.037, 72.873);
 // whereAmI(-33.933, 18.474);
@@ -377,7 +377,6 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 GOOD LUCK 😀
 */
 
-
 // const wait = function (seconds) {
 //   return new Promise(function (resolve) {
 //     setTimeout(resolve, seconds * 1000);
@@ -395,7 +394,7 @@ GOOD LUCK 😀
 //       imgContainer.append(img);
 //       resolve(img);
 //     });
-
+    
 //     img.addEventListener('error', function () {
 //       reject(new Error('Image not found'));
 //     });
@@ -403,7 +402,6 @@ GOOD LUCK 😀
 // };
 
 // let currentImg;
-
 // createImage('img/img-1.jpg')
 //   .then(img => {
 //     currentImg = img;
@@ -423,6 +421,7 @@ GOOD LUCK 😀
 //     currentImg.style.display = 'none';
 //   })
 //   .catch(err => console.error(err));
+
 
 // // Consuming Promises with Async/Await
 // // Error Handling With try...catch
@@ -600,7 +599,6 @@ TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn of
 
 GOOD LUCK 😀
 */
-
 
 // const wait = function (seconds) {
 //   return new Promise(function (resolve) {
