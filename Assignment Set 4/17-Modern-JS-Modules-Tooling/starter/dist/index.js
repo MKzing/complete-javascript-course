@@ -13,9 +13,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   function newRequire(name, jumped) {
     if (!cache[name]) {
       if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
+        // if we cannot find the module within our internal map or cache, jump to the current global require ie. the last bundle that was added to the page.
         var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
         if (!jumped && currentRequire) {
           return currentRequire(name, true);
@@ -23,13 +21,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
         // If there are other bundles on this page the require from the
         // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
+        // many times as there are bundles, until the module is found or
         // we exhaust the require chain.
         if (previousRequire) {
           return previousRequire(name, true);
         }
 
-        // Try the node require function if it exists.
+        // Try the node require function if it exists
         if (nodeRequire && typeof name === 'string') {
           return nodeRequire(name);
         }
@@ -75,7 +73,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
     }, {}];
   };
 
-  var error; // Would a 'let' be better than a 'var'?
+  var error; // ? Would a 'let' be better than a 'var'?
   for (var i = 0; i < entry.length; i++) {
     try {
       newRequire(entry[i]);
@@ -133,7 +131,7 @@ function getBundleURL() {
   try {
     throw new Error();
   } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g); // ? Would a 'let' be better than a 'var'?
 
     if (matches) {
       return getBaseURL(matches[0]);
@@ -153,7 +151,7 @@ exports.getBaseURL = getBaseURL;
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
-  var newLink = link.cloneNode();
+  var newLink = link.cloneNode(); // ? Would a 'let' be better than a 'var'?
 
   newLink.onload = function () {
     link.remove();
@@ -188,6 +186,8 @@ module.exports = reloadCSS;
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
+
+// ? Would a 'let' be better than a 'var'?
 
 function Module(moduleName) {
   OldModule.call(this, moduleName);
@@ -265,14 +265,14 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
     if (data.type === 'error') {
       console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
       removeErrorOverlay();
-      var overlay = createErrorOverlay(data);
+      var overlay = createErrorOverlay(data); // ? Would a 'let' be better than a 'var'?
       document.body.appendChild(overlay);
     }
   };
 }
 
 function removeErrorOverlay() {
-  var overlay = document.getElementById(OVERLAY_ID);
+  var overlay = document.getElementById(OVERLAY_ID); // ? Would a 'let' be better than a 'var'?
 
   if (overlay) {
     overlay.remove();
@@ -282,6 +282,8 @@ function removeErrorOverlay() {
 function createErrorOverlay(data) {
   var overlay = document.createElement('div');
   overlay.id = OVERLAY_ID; // html encode message and stack trace
+
+  // ? Would a 'let' be better than a 'var'?
 
   var message = document.createElement('div');
   var stackTrace = document.createElement('pre');
